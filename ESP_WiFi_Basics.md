@@ -85,6 +85,8 @@ server.on("/", HTTP_GET, myfunction()); //on "/" request, start to myfunction()
 *Configure the XMLHttpRequest():*
 
 ```js
+//JavaScript Code
+
 var xhr = new XMLHttpRequest();
 var message = "Hello World!";
 
@@ -100,6 +102,8 @@ Code will send a "/req" request to the ESP module with text="Hello World" value
 *Get value on ESP module:*
 
 ```C
+//ESP Code
+
 server.on("/req", HTTP_GET, []{
 if(server.hasArg("text"))            //if server has arg("text")
 String tx = server.arg(text);        //Get text value on "/req" request and print the text value
