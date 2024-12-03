@@ -7,6 +7,9 @@
 ```
 *ESP8266 WiFi Configuration:*
 ```C
+
+ESP8266WebServer server(80);     //open a server on port 80
+
 const char* ssid = "*******";
 const char* password = "*******";
 ```
@@ -78,6 +81,10 @@ On request
 server.on("/", HTTP_GET, myfunction()); //on "/" request, start to myfunction()
 ```
 
+```C
+server.handleClient();   //Listen to requests from client (put in Loop())
+```
+
 ---
 
 ***Get Data From Server:***
@@ -105,9 +112,9 @@ Code will send a "/req" request to the ESP module with text="Hello World" value
 //ESP Code
 
 server.on("/req", HTTP_GET, []{
-if(server.hasArg("text"))            //if server has arg("text")
+if(server.hasArg("text")){            //if request has arg("text")
 String tx = server.arg(text);        //Get text value on "/req" request and print the text value
 Serial.println(tx);                  //Print out tx with serial communication
-});
+}});
 ```
 
