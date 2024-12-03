@@ -101,8 +101,9 @@ Code will send a "/req" request to the ESP module with text="Hello World" value
 
 ```C
 server.on("/req", HTTP_GET, []{
-String tx = server.arg(text);
-Serial.println(tx);
+if(server.hasArg("text"))            //if server has arg("text")
+String tx = server.arg(text);        //Get text value on "/req" request and print the text value
+Serial.println(tx);                  //Print out tx with serial communication
 });
 ```
-Get text value on "/req" request and print the text value
+
