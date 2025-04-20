@@ -54,7 +54,7 @@
       return;
     }
   ```
-  - Put it in Setup() function
+  - Have to be in Setup() function.
 
 
   ### Send Message:
@@ -79,7 +79,7 @@
   ```c
   esp_now_register_recv_cb(OnDataReceived);
   ```
-  - Put it in Setup() function
+  - Have to be in Setup() function.
   
   
   ### (Callback) Receiver Function:
